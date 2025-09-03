@@ -9,8 +9,8 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adem Duran | Fullstack developer",
-  description: "Full-stack developer by day, design enthusiast by night. I build, learn, and create—fueled by curiosity, football, and rap music.",
+  title: "adem duran - junior fullstack developer",
+  description: "junior fullstack developer by day, design enthusiast by night. i build, learn, and create—fueled by curiosity, football, and rap music.",
 };
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmMono.className} antialiased`}
+        className={`${dmMono.className} antialiased lowercase`}
       >
         {children}
       </body>
