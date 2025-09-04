@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Mono } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 
 const dmMono = DM_Mono({
   variable: "--font-dm-mono",
@@ -11,8 +10,23 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: "adem duran - junior fullstack developer",
-  description: "junior fullstack developer by day, design enthusiast by night. i build, learn, and create—fueled by curiosity, football, and rap music.",
+  description:
+    "junior fullstack developer by day, design enthusiast by night. i build, learn, and create—fueled by curiosity, football, and rap music.",
+  openGraph: {
+    title: "adem duran - junior fullstack developer",
+    description:
+      "junior fullstack developer by day, design enthusiast by night. i build, learn, and create—fueled by curiosity, football, and rap music.",
+    images: [
+      {
+        url: "/og_image.png",
+        width: 1200,
+        height: 630,
+        alt: "adem duran portfolio preview",
+      },
+    ],
+  },
 };
+
 
 export default function RootLayout({
   children,
@@ -21,9 +35,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-			<Head>
-				<meta property="og:image" content="/og_image.png" />
-			</Head>
       <body
         className={`${dmMono.className} antialiased lowercase`}
       >

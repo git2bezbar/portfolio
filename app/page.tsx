@@ -31,7 +31,7 @@ export default function Home() {
           className="flex flex-col gap-8"
           ref={(el) => {blocksRef.current[0] = el}}
         >
-          <Image src="/photo.png" alt="adem duran" width={128} height={128} />
+          <Image src="/adem.png" alt="adem duran" width={128} height={128} />
           <div className="flex flex-col">
             <h1>adem duran</h1>
             <p className="text-gray">junior fullstack developer at <Poool /></p>
