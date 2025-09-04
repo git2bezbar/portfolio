@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Mono } from "next/font/google";
 import "./globals.css";
+import Head from "next/head";
 
 const dmMono = DM_Mono({
   variable: "--font-dm-mono",
@@ -20,6 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+			<Head>
+				<meta property="og:image" content="/og_image.png" />
+			</Head>
       <body
         className={`${dmMono.className} antialiased lowercase`}
       >
