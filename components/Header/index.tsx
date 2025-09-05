@@ -26,11 +26,15 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="flex flex-col gap-8 xl:pt-32"
+      className="flex flex-col items-start gap-8 xl:pt-32"
     >
-      <Image src="/adem.png" alt="adem duran" width={128} height={128} />
+			<Link href="/">
+      	<Image src="/adem.png" alt="adem duran" width={128} height={128} />
+			</Link>
       <div className="flex flex-col">
-        <h1>adem duran</h1>
+				<Link href="/">
+        	<h1>adem duran</h1>
+				</Link>
         <p className="text-gray">
           junior fullstack developer @ <Poool />
         </p>

@@ -38,11 +38,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmMono.className} antialiased lowercase h-screen w-screen grid xl:grid-cols-9 xl:gap-16 *:xl:col-start-4 *:xl:col-end-7`}
+        className={`${dmMono.className} antialiased lowercase h-screen w-screen grid xl:gap-y-16 xl:grid-cols-(--custom-grid) *:xl:col-start-2 *:xl:col-end-3`}
       >
-				<Header />
-        {children}
-				<Footer />
+				<div className="flex flex-col gap-16 p-12 md:p-16 lg:p-32 xl:p-0">
+					<Header />
+					{children}
+					<Footer />
+				</div>
       </body>
     </html>
   );
