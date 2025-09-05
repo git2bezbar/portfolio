@@ -30,33 +30,16 @@ export default function Home() {
       ref={mainRef}
       className="flex flex-col items-start justify-center gap-4"
     >
-      <div className="flex flex-col gap-4">
-        <p>hey! 👋🏻</p>
-        <p>
-          i am adem, a full-stack developer who spends my days working across
-          frontend and backend, improving features and making things run
-          smoothly.
-        </p>
-        <p>
-          i love learning new tools and finding ways to make code cleaner. before
-          this, i worked as a front-end integrator in a web agency, turning
-          designs into interactive pages and learning the craft of user-friendly
-          interfaces.
-        </p>
-        <p>
-          in my free time, i let my creativity take over—designing layouts,
-          exploring UI concepts, or tinkering with side projects just for fun.
-          And when I step away from screens, football and rap music keep me
-          energized and inspired. Combining creativity with code is what drives
-          me every day.
-        </p>
-        <p>
-          i’m always looking for new challenges and opportunities to grow.
-          experimenting with new technologies, discovering design ideas, or
-          simply pushing myself to try something different keeps me motivated
-          and passionate about what i do.
-        </p>
-      </div>
+			<p>hey! 👋🏻</p>
+			<p>
+				I’m Adem, a full-stack developer working across frontend and backend
+				to improve features and make things run smoothly. I love learning new
+				tools, experimenting with creative ideas, and turning designs into
+				interactive experiences. In my free time, I explore UI concepts,
+				tinker with side projects, and stay inspired by football and rap
+				music. Curiosity and creativity drive everything I do, pushing me to
+				keep learning and improving.
+			</p>
     </main>
   );
 }
