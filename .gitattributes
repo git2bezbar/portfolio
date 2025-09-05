@@ -7,3 +7,11 @@
 *.tsx  text eol=lf
 *.json text eol=lf
 *.md   text eol=lf
+
+# Images (do not treat as text)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
