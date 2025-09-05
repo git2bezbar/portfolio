@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Experience from "@/components/Experience";
 
-export default function Home() {
+export default function About() {
 	const mainRef = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
