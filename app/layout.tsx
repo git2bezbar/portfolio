@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const dmMono = DM_Mono({
   variable: "--font-dm-mono",
@@ -36,9 +38,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmMono.className} antialiased lowercase`}
+        className={`${dmMono.className} antialiased lowercase h-screen w-screen grid xl:grid-cols-9 xl:gap-16 *:xl:col-start-4 *:xl:col-end-7`}
       >
+				<Header />
         {children}
+				<Footer />
       </body>
     </html>
   );
