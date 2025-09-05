@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="text-gray xl:pb-16"
+      className="text-gray xl:pb-16 mt-auto"
     >
       <p>made with ❤️ in bordeaux, france - <Clock /></p>
     </footer>
