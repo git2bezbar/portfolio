@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function Clock() {
-  const [time, setTime] = useState<string>("loading...");
+  const [time, setTime] = useState<string | null>(null);
 
   useEffect(() => {
     const updateTime = () => {
@@ -20,9 +20,8 @@ export default function Clock() {
 
     updateTime();
     const interval = setInterval(updateTime, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
-  return <span>{time}</span>;
+  return <span>{time ?? "--:--:--"}</span>;
 }
