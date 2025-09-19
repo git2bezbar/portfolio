@@ -1,43 +1,24 @@
-"use client";
-
-import { gsap } from "gsap";
-import { notFound, useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { getWorkById } from "@/data/work";
-import { useEffect, useRef } from "react";
 
-export default function SingleWorkPage() {
-	const { id } = useParams<{ id: string }>();
+export default async function SingleWorkPage({ params }: { params: { id: string } }) {
+	const { id } = await params;
 		
   const work = getWorkById(id);
 	
   if (!work) {
-    notFound();
+    return (
+		<article className="flex flex-col gap-16 fade-up animation-delay-500">
+      <div className="flex flex-col gap-8">
+        <p>Work not found. </p>
+      </div>
+    </article>
+		)
   }
 
-	const mainRef = useRef<HTMLDivElement | null>(null);
-
-	useEffect(() => {
-		if (!mainRef.current) return;
-
-		const ctx = gsap.context(() => {
-			gsap.from(mainRef.current, {
-				opacity: 0,
-				y: 40,
-				filter: "blur(8px)",
-				duration: 1,
-				ease: "power2.out",
-				clearProps: "all",
-				delay: 0.75,
-			});
-		}, mainRef);
-
-		return () => ctx.revert();
-	}, []);
-
   return (
-    <article className="flex flex-col gap-16" ref={mainRef}>
+    <article className="flex flex-col gap-16 fade-up animation-delay-500">
       <header className="flex flex-col gap-8">
         <h1 className="text-2xl font-bold">{work.title}</h1>
 				<div className="flex flex-col gap-2">

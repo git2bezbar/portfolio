@@ -10,3 +10,51 @@
 	--color-onyx: #1A1A1A;
 	--custom-grid: 1fr 680px 1fr;
 }
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(8px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.animation-delay-500 {
+	animation-delay: 0.5s;
+}
+
+.animation-delay-1000 {
+	animation-delay: 1s;
+}
+
+.animation-delay-1500 {
+	animation-delay: 1.5s;
+}
+
+.animation-delay-2000 {
+	animation-delay: 2s;
+}
+
+.poool span {
+  color: var(--color-onyx);
+  display: inline-block;
+}
+
+.poool span:nth-child(2) {
+	color: var(--color-velvet);
+}
+
+.poool span:nth-child(3) {
+	color: var(--color-grapefruit);
+}
+
+.poool span:nth-child(4) {
+  color: var(--color-sunglow);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
