@@ -20,10 +20,10 @@ export default async function SingleWorkPage({ params }: { params: { id: string 
   return (
     <article className="flex flex-col gap-16 fade-up animation-delay-500">
       <header className="flex flex-col gap-8">
-        <h1 className="text-2xl font-bold">{work.title}</h1>
+        <h2 className="text-2xl font-bold">{work.title}</h2>
 				<div className="flex flex-col gap-2">
 					<div className="flex justify-between">
-						<h2>{work.typeOfProject} project</h2>
+						<p>{work.typeOfProject} project</p>
 						<p>{work.year}</p>
 					</div>
 					<p className="text-gray">{work.stack.join(", ")}</p>
