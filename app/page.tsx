@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <main
       ref={mainRef}
-      className="flex flex-col items-start justify-center gap-4"
+      className="flex flex-col items-start justify-center gap-4 mb-32"
     >
 			<p>hey! 👋🏻</p>
 			<p>
