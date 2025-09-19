@@ -1,6 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getWorkById } from "@/data/work";
+import { Metadata } from "next";
+import Script from "next/script";
+
+interface WorkPageProps {
+  params: { id: string };
+}
+
+export async function generateMetadata({ params }: WorkPageProps): Promise<Metadata> {
+  const { id } = params;
+  const work = await getWorkById(id);
+
+	if (!work) {
+		return {
+			title: "work not found",
+			description: "the requested work could not be found.",
+		};
+	}
+
+  return {
+    title: `${work.title}`,
+    description: work.content.find(block => block.type === "text")?.value.slice(0, 160) || "a project by adem duran.",
+    openGraph: {
+      title: work.title,
+      description: work.content.find(block => block.type === "text")?.value.slice(0, 160) || "a project by adem duran.",
+      images: [work.workImageCover],
+    },
+    twitter: {
+      title: work.title,
+      description: work.content.find(block => block.type === "text")?.value.slice(0, 160) || "a project by adem duran.",
+      images: [work.workImageCover],
+    },
+  };
+}
 
 export default async function SingleWorkPage({ params }: { params: { id: string } }) {
 	const { id } = await params;
@@ -16,6 +49,22 @@ export default async function SingleWorkPage({ params }: { params: { id: string 
     </article>
 		)
   }
+
+	const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": work.title,
+    "url": work.websiteLink || `https://ademduran.fr/work/${work.id}`,
+    "description": work.content.find(block => block.type === "text")?.value || "",
+    "image": work.workImageCover ? `https://ademduran.fr${work.workImageCover}` : undefined,
+    "datePublished": work.year ? `${work.year}-01-01` : undefined,
+    "creator": {
+      "@type": "Person",
+      "name": "Adem Duran",
+      "url": "https://ademduran.fr"
+    },
+    "keywords": work.stack.join(", ")
+  };
 
   return (
     <article className="flex flex-col gap-16 fade-up animation-delay-500">
@@ -82,6 +131,11 @@ export default async function SingleWorkPage({ params }: { params: { id: string 
           </Link>
         ))}
       </footer>
+			<Script
+				type="application/ld+json"
+				id="work-jsonld"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
     </article>
   );
 }

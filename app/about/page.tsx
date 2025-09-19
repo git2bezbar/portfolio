@@ -1,6 +1,31 @@
 import Experience from "@/components/Experience";
+import { Metadata } from "next";
+import Script from "next/script";
+
+export const metadata: Metadata = {
+  title: "about",
+  description: "learn more about adem duran, a junior fullstack developer.",
+};
 
 export default function About() {
+	const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Adem Duran",
+    "url": "https://ademduran.fr",
+    "jobTitle": "Junior Fullstack Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Poool",
+      "url": "https://www.poool.fr/fr"
+    },
+    "description": "Junior fullstack developer by day, design enthusiast by night. I build, learn, and create—fueled by curiosity, football, and rap music.",
+    "sameAs": [
+      "https://x.com/a3demduran",
+      "https://www.linkedin.com/in/adem-duran/",
+      "https://github.com/git2bezbar"
+    ]
+  };
 
 	return (
 		<main className="flex flex-col items-start justify-center gap-16 fade-up animation-delay-500">
@@ -60,6 +85,11 @@ export default function About() {
 					</li>
 				</ul>
 			</div>
+			<Script
+        type="application/ld+json"
+        id="about-jsonld"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 		</main>
 	);
 }

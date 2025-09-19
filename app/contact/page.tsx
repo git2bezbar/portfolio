@@ -1,4 +1,31 @@
+import { Metadata } from "next";
+import Script from "next/script";
+
+export const metadata: Metadata = {
+  title: "contact",
+  description: "get in touch with adem duran.",
+};
+
 export default function Contact() {
+	const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "contact | adem duran",
+    "url": "https://ademduran.fr/contact",
+    "about": "get in touch with adem duran, junior fullstack developer",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "adem duran",
+      "email": "mailto:contact@ademduran.fr",
+      "url": "https://ademduran.fr",
+      "sameAs": [
+        "https://x.com/a3demduran",
+        "https://www.linkedin.com/in/adem-duran/",
+        "https://github.com/git2bezbar"
+      ]
+    }
+  };
+
 	return (
 		<main
 			className="flex flex-col items-start justify-center gap-16 fade-up animation-delay-500"
@@ -19,6 +46,11 @@ export default function Contact() {
 					</li>
 				</ul>
 			</div>
+			<Script
+				type="application/ld+json"
+				id="contact-jsonld"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
 		</main>
 	);
 }
