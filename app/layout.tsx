@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   title: "adem duran - junior fullstack developer",
   description:
     "junior fullstack developer by day, design enthusiast by night. i build, learn, and create—fueled by curiosity, football, and rap music.",
-  openGraph: {
+		metadataBase: new URL("https://ademduran.fr"),
+		openGraph: {
     title: "adem duran - junior fullstack developer",
     description:
       "junior fullstack developer by day, design enthusiast by night. i build, learn, and create—fueled by curiosity, football, and rap music.",
