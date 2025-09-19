@@ -11,10 +11,44 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "adem duran - junior fullstack developer",
-  description:
-    "junior fullstack developer by day, design enthusiast by night. i build, learn, and create—fueled by curiosity, football, and rap music.",
+  title: {
+    default: "adem duran - junior fullstack developer",
+    template: "%s | adem duran",
+  },
+  description: "junior fullstack developer by day, design enthusiast by night. i build, learn, and create—fueled by curiosity, football, and rap music.",
+
+  metadataBase: new URL("https://ademduran.fr"),
+
+  keywords: [
+    "adem duran",
+    "fullstack developer",
+    "junior developer",
+    "frontend",
+    "backend",
+    "javascript",
+    "typescript",
+    "next.js",
+    "react",
+    "tailwindcss",
+    "gsap",
+    "portfolio",
+    "bordeaux",
+    "web developer",
+  ],
+
+  authors: [{ name: "Adem Duran", url: "https://ademduran.fr" }],
+  creator: "Adem Duran",
+  publisher: "Adem Duran",
+
+  alternates: {
+    canonical: "https://ademduran.fr",
+  },
+
   openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://ademduran.fr",
+    siteName: "adem duran portfolio",
     title: "adem duran - junior fullstack developer",
     description:
       "junior fullstack developer by day, design enthusiast by night. i build, learn, and create—fueled by curiosity, football, and rap music.",
@@ -27,8 +61,21 @@ export const metadata: Metadata = {
       },
     ],
   },
-};
 
+  twitter: {
+    card: "summary_large_image",
+    title: "adem duran - junior fullstack developer",
+    description:
+      "junior fullstack developer by day, design enthusiast by night. i build, learn, and create—fueled by curiosity, football, and rap music.",
+    creator: "@a3demduran",  
+    images: ["/og_image.png"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+};
 
 export default function RootLayout({
   children,

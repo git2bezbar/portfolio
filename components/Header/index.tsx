@@ -1,29 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 import Poool from "../PooolText";
 import Link from "next/link";
-import { gsap } from "gsap";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-  const headerRef = useRef<HTMLElement | null>(null);
   const pathname = usePathname();
 
-  useEffect(() => {
-    if (!headerRef.current) return;
-
-    gsap.from(headerRef.current, {
-      opacity: 0,
-      y: 40,
-      filter: "blur(8px)",
-      duration: 1,
-      ease: "power2.out",
-      delay: 0.5,
-      clearProps: "all",
-    });
-  }, []);
 
   const links = [
     { href: "/about", label: "about" },
@@ -32,12 +16,9 @@ export default function Header() {
   ];
 
   return (
-    <header
-      ref={headerRef}
-      className="flex flex-col items-start gap-8 xl:pt-32"
-    >
+    <header className="flex flex-col items-start gap-8 xl:pt-32 fade-up animation-delay-500">
       <Link href="/">
-        <Image src="/adem.png" alt="adem duran" width={128} height={128} />
+        <Image src="/adem.png" alt="adem duran" width={128} height={128} priority />
       </Link>
       <div className="flex flex-col">
         <Link href="/">

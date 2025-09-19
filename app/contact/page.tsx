@@ -1,35 +1,34 @@
-"use client";
+import { Metadata } from "next";
+import Script from "next/script";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import Experience from "@/components/Experience";
+export const metadata: Metadata = {
+  title: "contact",
+  description: "get in touch with adem duran.",
+};
 
 export default function Contact() {
-	const mainRef = useRef<HTMLDivElement | null>(null);
-
-	useEffect(() => {
-		if (!mainRef.current) return;
-
-		const ctx = gsap.context(() => {
-			gsap.from(mainRef.current, {
-				opacity: 0,
-				y: 40,
-				filter: "blur(8px)",
-				duration: 1,
-				ease: "power2.out",
-				clearProps: "all",
-				delay: 0.75,
-			});
-		}, mainRef);
-
-		return () => ctx.revert();
-	}, []);
-
+	const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "contact | adem duran",
+    "url": "https://ademduran.fr/contact",
+    "about": "get in touch with adem duran, junior fullstack developer",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "adem duran",
+      "email": "mailto:contact@ademduran.fr",
+      "url": "https://ademduran.fr",
+      "sameAs": [
+        "https://x.com/a3demduran",
+        "https://www.linkedin.com/in/adem-duran/",
+        "https://github.com/git2bezbar"
+      ]
+    }
+  };
 
 	return (
 		<main
-			ref={mainRef}
-			className="flex flex-col items-start justify-center gap-16"
+			className="flex flex-col items-start justify-center gap-16 fade-up animation-delay-500"
 		>
 			<div className="flex flex-col gap-4">
 				<p>Whether it’s a question, a collab, or a random hello, feel free to reach out.</p>
@@ -47,6 +46,11 @@ export default function Contact() {
 					</li>
 				</ul>
 			</div>
+			<Script
+				type="application/ld+json"
+				id="contact-jsonld"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
 		</main>
 	);
 }
